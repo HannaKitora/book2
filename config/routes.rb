@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/show'
+  get 'users/:id/show' => 'users#show'
   get 'users/edit'
   get 'users/index'
   resources :books, only: [:new, :create, :index, :show]

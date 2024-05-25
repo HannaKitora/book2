@@ -1,1 +1,16 @@
 <h2>Users</h2>
+<% @users.each do |user| %>
+  <table>
+    <thead>
+      
+    </thead>
+    <tbody>
+      <%= image_tag user.get_profile_image(100,100) %>
+      <%= user.name %>
+      <%= link_to 'Show', users_show_path %>
+      
+      
+    </tbody>
+  </table>
+  
+<% end %>

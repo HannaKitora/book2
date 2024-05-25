@@ -25,6 +25,10 @@
         <li>
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </li>
+        
+        <h2>User info</h2>
+        
+        
       <% else %>
         <li>
           <%= link_to "Home", new_book_path %>
