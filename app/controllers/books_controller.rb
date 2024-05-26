@@ -9,7 +9,8 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to books_path
     else
-      render :new
+      @books = Book.page(params[:page])
+      render :index
     end
   end
 
@@ -17,6 +18,7 @@ class BooksController < ApplicationController
     @books = Book.page(params[:page])
     @book = Book.new
     @user = current_user
+    
   end
 
   def show
