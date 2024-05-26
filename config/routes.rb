@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'users/:id/edit' => 'users#edit'
   get 'users/index' => 'users#index'
   resources :books, only: [:new, :create, :index, :show, :destroy]
-  resources :users, only: [:show, :index, :edit]
+  resources :users, only: [:show, :index, :edit, :update]
   
   # get 'books/new'
   # get 'books/index'
