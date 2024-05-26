@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/show'
   get 'users/:id/show' => 'users#show'
-  get 'users/edit'
-  get 'users/index'
-  resources :books, only: [:new, :create, :index, :show]
+  get 'users/:id/edit' => 'users#edit'
+  get 'users/index' => 'users#index'
+  resources :books, only: [:new, :create, :index, :show, :destroy]
+  resources :users, only: [:show, :index, :edit]
   
   # get 'books/new'
   # get 'books/index'
