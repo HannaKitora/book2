@@ -1,4 +1,4 @@
-<%= render 'books/list', books: @books, user: @user %>
+<%= render 'books/list', book: @book ,books: @books, user: @user %>
 
 <h1>Books</h1>
 
@@ -7,6 +7,6 @@
     <%= image_tag book.user.get_profile_image(100,100) %>
     <%= link_to "#{book.title}", book_path(book.id) do %>
     <%= book.body %>
-
+    <% end %>
   </div>
 <% end %>
