@@ -13,10 +13,10 @@
 
   <h1>User info</h1>
   <div>
-    <%= image_tag book.user.get_profile_image(150,150) %>
-      <p>name<%= book.user.name %></p>  
-      <p>introduction<%= book.user.introduction %></p>
-      <% if book.user == current_user %>
+    <%= image_tag user.get_profile_image(150,150) %>
+      <p>name<%= user.name %></p>  
+      <p>introduction<%= user.introduction %></p>
+      <% if user == current_user %>
         <p><%= link_to "設定", edit_user_path(user.id) %></p>
       <% end %>
     </div>
