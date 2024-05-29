@@ -7,14 +7,13 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    flash[:notice] = "You have updated user successfully."
   end
   
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
     flash[:notice] = "You have updated user successfully."
-    redirect_to
+    redirect_to books_path(@user.id)
   end
   
   def index
