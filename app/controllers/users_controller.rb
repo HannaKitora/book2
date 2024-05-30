@@ -6,14 +6,16 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
+    # @user = User.find(current_user.id)
+    @user = current_user
   end
-  
+    
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     @user.update(user_params)
     flash[:notice] = "You have updated user successfully."
-    redirect_to books_path(@user.id)
+    redirect_to user_path(current_user)
   end
   
   def index
@@ -25,7 +27,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :profile_image)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
   
   def is _matching_login_user
