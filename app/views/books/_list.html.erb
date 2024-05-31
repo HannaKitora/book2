@@ -10,35 +10,44 @@
 <% end %>
 
 <div class="container">
-  <div class="row">
-    <h1>User info</h1>
-    <%= image_tag user.get_profile_image(150,150) %>
-    <table class="table table-striped">
-      <tbody>
-        <tr>
-          <td>name</td>
-          <td><%= user.name %></td>
-        </tr>
-        <tr>
-          <td>introduction</td>
-          <td><%= user.introduction %></td>
-        </tr>
-      </tbody>
-    </table>
-    <% if user == current_user %>
-      <p><%= link_to "設定", edit_user_path(user.id) %></p>
-    <% end %>
-  </div>
-    
-    <h1>New book</h1>
-    <div class="book">
-      <%= form_with model: book do |f| %>
-        <h4>Title</h4>
-        <%= f.text_field :title %>
-        <h4>Opinion</h4>
-        <%= f.text_area :body %>
-        <br>
-        <%= f.submit 'Create Book' %>
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto">
+      <h1>User info</h1>
+      <%= image_tag user.get_profile_image(150,150) %>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>name</td>
+            <td><%= user.name %></td>
+          </tr>
+          <tr>
+            <td>introduction</td>
+            <td><%= user.introduction %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% if user == current_user %>
+        <p><%= link_to "設定", edit_user_path(user.id) %></p>
       <% end %>
     </div>
+  </div>
 </div>
+
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto">
+      <h1 class="text-dark pb-2 mb-0">New book</h1>
+      <div class="book">
+        <%= form_with model: book do |f| %>
+          <p>Title</p>
+          <%= f.text_field :title, class: "form-control" %>
+          <p>Opinion</p>
+          <%= f.text_area :body, class: "form-control" %>
+          <br>
+          <%= f.submit 'Create Book', class: "btn btn-info mt-2" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

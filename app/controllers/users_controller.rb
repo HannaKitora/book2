@@ -22,6 +22,12 @@ class UsersController < ApplicationController
     @book = Book.new
   end
   
+  def destroy
+    user = current_user
+    log_out
+    redirect_to root_path
+  end
+  
   private
   
   def user_params

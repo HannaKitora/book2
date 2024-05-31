@@ -11,7 +11,10 @@ class BooksController < ApplicationController
       flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book.id)
     else
+      @book = Book.find(params[:id])
       @books = Book.page(params[:page])
+      @book_new = Book.new
+      @user = current_user
       render :show
     end
   end
@@ -30,8 +33,9 @@ class BooksController < ApplicationController
   end
   
   def edit
-    @book = Book.find(params[:id])
+    is_matching_login_user
     @user = current_user
+    @book = Book.find(params[:id])
   end
   
   def update
