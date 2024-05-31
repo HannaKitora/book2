@@ -1,12 +1,15 @@
 <%= render 'list', book: @book_new, books: @books, user: @user %>
 
 <h1>Book detail</h1>
-  
-  <p><%= image_tag @book.user.get_profile_image(100,100)  %></p>
-  <p><%= link_to @user.name, user_path(@user.id) %></p>
-  <p><%= link_to @book.title, book_path(@book.id) %></p>
-  <p><%= @book.body %></p>
-  <% if @book.user == current_user %>
-    <p><%= link_to "Edit", edit_book_path(current_user) %></p>
-    <p><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %></p>
-  <% end %>
+  <div class="col-3">
+    <div class="row">
+      <div class="col=3"><%= image_tag @book.user.get_profile_image(100,100)  %></div>
+      <div><%= link_to @user.name, user_path(@user.id) %></div>
+      <div class="col=3"><%= link_to @book.title, book_path(@book.id) %></div>
+      <div class="col=3"><%= @book.body %></div>
+      <% if @book.user == current_user %>
+        <div><%= link_to "Edit", edit_book_path(current_user) %></div>
+        <div><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %></div>
+      <% end %>
+    </div>
+  </div>
