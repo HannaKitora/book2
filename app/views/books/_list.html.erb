@@ -11,7 +11,7 @@
 
 <div class="container">
   <div class="row no-gutters">
-    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto">
+    <div class="col-md-7 col-sm-10 mx-2 mx-sm-auto">
       <h1>User info</h1>
       <%= image_tag user.get_profile_image(150,150) %>
       <table class="table table-striped">
@@ -27,7 +27,9 @@
         </tbody>
       </table>
       <% if user == current_user %>
-        <p><%= link_to "設定", edit_user_path(user.id) %></p>
+        <p>
+          <%= link_to edit_user_path(user.id) %><i class="fa-solid fa-user-gear"></i>
+        </p>
       <% end %>
     </div>
   </div>
@@ -35,7 +37,7 @@
 
 <div class="container">
   <div class="row no-gutters">
-    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto">
+    <div class="col-md-7 col-sm-10 mx-2 mx-sm-auto">
       <h1 class="text-dark pb-2 mb-0">New book</h1>
       <div class="book">
         <%= form_with model: book do |f| %>

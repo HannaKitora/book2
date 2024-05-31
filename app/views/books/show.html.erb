@@ -2,18 +2,33 @@
 
 <div class="container">
   <div class="row no-gutters">
-    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto">
+    <div class="col-md-7 col-sm-10 mx-2 mx-sm-auto">
       <h1>Book detail</h1>
       
-            <div class="col=3"><%= image_tag @book.user.get_profile_image(100,100)  %></div>
- 
-            <div><%= link_to @user.name, user_path(@user.id) %></div>
-            <div class="col=3"><%= link_to @book.title, book_path(@book.id) %></div>
-            <div class="col=3"><%= @book.body %></div>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th scope="col">
+              <%= image_tag @book.user.get_profile_image(100,100) %>
+              <%= link_to @user.name, user_path(@user.id) %>
+            </th>
+            <th scope="col">
+              <%= link_to @book.title, book_path(@book.id) %>
+            </thv>
+            <th scope="col">
+              <%= @book.body %>
+            </th>
             <% if @book.user == current_user %>
-              <div><%= link_to "Edit", edit_book_path(current_user) %></div>
-              <div><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %></div>
+              <th scope="col">
+                <%= link_to "Edit", edit_book_path(current_user) %>
+              </th>
+              <th scope="col">
+                <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+              </th>
             <% end %>
-      </div>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
