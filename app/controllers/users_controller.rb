@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    current_user.delete
+    reset_session
     redirect_to root_path
   end
   
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
   
-  def is _matching_login_user
+  def is_matching_login_user
     user = User.find(params[:id])
     unless user.id == current_user.id
       redirect_to users_show_path

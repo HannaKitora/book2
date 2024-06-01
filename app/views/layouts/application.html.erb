@@ -39,7 +39,7 @@
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to destroy_user_session_path, method: :delete do %>
+                <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
                   <i class="fa-solid fa-right-from-bracket"></i>Log out
                 <% end %>
               </li>

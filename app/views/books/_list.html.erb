@@ -26,11 +26,15 @@
           </tr>
         </tbody>
       </table>
+      
       <% if user == current_user %>
-        <p>
-          <%= link_to edit_user_path(user.id) %><i class="fa-solid fa-user-gear"></i>
-        </p>
+        <li class="btn btn-md btn-block btn-info mb-5">
+          <%= link_to edit_user_path(user.id) do %>
+            <i class="fa-solid fa-user-gear"></i>
+          <% end %>
+        </li>
       <% end %>
+      
     </div>
   </div>
 </div>
@@ -46,7 +50,7 @@
           <p>Opinion</p>
           <%= f.text_area :body, class: "form-control" %>
           <br>
-          <%= f.submit 'Create Book', class: "btn btn-info mt-2" %>
+          <%= f.submit 'Create Book', class: "btn btn-info mt-2 mb-5" %>
         <% end %>
       </div>
     </div>
