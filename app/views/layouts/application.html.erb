@@ -12,61 +12,61 @@
 
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar p-1" href="/">Bookers</a>
+          <a class="navbar p-1 text-white" href="/">Bookers</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+            <div class="navbar-nav ml-auto">
 
             <% if user_signed_in? %>
-              <li class="nav-item">
+              <div class="nav-item">
                 <%= link_to root_path do %>
                   <i class="fa-solid fa-house"></i>Home
                 <% end %>
-              </li>
-              <li class="nav-item">
+              </div>
+              <div class="nav-item">
                 <%= link_to users_path do %>
                   <i class="fa-solid fa-users"></i>Users
                 <% end %>
-              </li>
-              <li class="nav-item">
+              </div>
+              <div class="nav-item">
                 <%= link_to books_path do %>
                   <i class="fa-solid fa-book"></i>Books
                 <% end %>
-              </li>
-              <li class="nav-item">
+              </div>
+              <div class="nav-item">
                 <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
                   <i class="fa-solid fa-right-from-bracket"></i>Log out
                 <% end %>
-              </li>
+              </div>
 
             <% else %>
-              <li class="nav-item">
+              <div class="nav-item">
                 <%= link_to root_path do %>
                   <i class="fa-solid fa-house"></i>Home
                 <% end %>
-              </li>
-              <li class="nav-item">
+              </div>
+              <div class="nav-item">
                 <%= link_to about_path do %>
                   <i class="fa-solid fa-link"></i>About
                 <% end %>
-              </li>
-              <li class="nav-item">
+              </div>
+              <div class="nav-item">
                 <%= link_to new_user_registration_path do %>
                   <i class="fa-solid fa-user-plus"></i>Sign up
                 <% end %>
-              </li>
-              <li class="nav-item">
+              </div>
+              <div class="nav-item">
                 <%= link_to new_user_session_path do %>
                   <i class="fa-solid fa-right-to-bracket"></i>Log in
                 <% end %>
-              </li>
+              </div>
             <% end %>
-            </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -76,7 +76,7 @@
     <%= yield %>
     </main>
     
-    <footer class="bg-light text-black pt-5 pb-4">
+    <footer class="text-black pt-5 pb-4">
       <div class="container">
         <div class="d-flex justify-content-center">
           <p>CopyRight Infratop.inc</p>
