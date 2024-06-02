@@ -1,4 +1,6 @@
-<%= flash[:notice] %>
+<div class="col-12">
+  <%= flash[:notice] %>
+</div>
 
 <% if book.errors.any? %>
   <%= book.errors.count %>errors prohibited this obj from being saved:

@@ -1,9 +1,16 @@
-<%= flash[:notice] %>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <div class="container">
-  <div class="row no-gutters">
-    <div class="col-md-7 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-      <h5 class="text-dark bg-light p-4 mb-0">Editing Book</h5>
+  <div class="row">
+    <div class="col-md-7 col-sm-10 mx-2 mx-sm-auto px-0 my-5">
+      <h5 class="text-dark p-4 mb-0">Editing Book</h5>
       <div class="form-body p-4">
         <%= form_with model: @book do |f| %>
           <label for="inputTitle">Title</label>
@@ -15,7 +22,7 @@
           <br>
           <%= f.submit "Update Book", class: "btn btn-secondary mt-4" %>
         <% end %>
-        <%= link_to "Show", user_path(current_user) %>
+        <%= link_to "Show", book_path(@book.id) %>
         |
         <%= link_to "Back", books_path %>
       </div>
