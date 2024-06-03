@@ -27,19 +27,19 @@
       </tbody>
     </table>
       
-      <% if user == current_user %>
+      <%# if user == current_user %>
         <li class="btn btn-md btn-block btn-outline-secondary mb-5">
           <%= link_to edit_user_path(user.id) do %>
             <i class="fa-solid fa-user-gear"></i>
           <% end %>
         </li>
-      <% else %>
-         <li class="btn btn-md btn-block btn-outline-secondary mb-5">
-          <%= link_to user_path(current_user) do %>
-            <i class="fa-solid fa-user-gear"></i>
-          <% end %>
-        </li>
-      <% end %>
+      <%# else %>
+        <!-- <li class="btn btn-md btn-block btn-outline-secondary mb-5">-->
+        <!--  <%#= link_to user_path(current_user) do %>-->
+        <!--    <i class="fa-solid fa-user-gear"></i>-->
+        <!--  <%# end %>-->
+        <!--</li>-->
+      <%# end %>
 
   <div class="row">
     <div class="col">
